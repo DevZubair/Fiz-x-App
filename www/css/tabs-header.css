@@ -1,0 +1,9 @@
+.tabs-positive > .tabs, .tabs.tabs-positive {
+  border-color: #0A0A0A !important;
+  background-color: rgba(0, 0, 0, 0.78) !important;
+  background-image: linear-gradient(0deg, #000000, #000000 50%, transparent 50%);
+  color: #fff;
+}
+.tab-item{
+ opacity: 0.3;
+}

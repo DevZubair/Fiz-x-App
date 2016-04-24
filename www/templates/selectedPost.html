@@ -1,0 +1,175 @@
+<ion-view view-title="Post" style="background-image: url('img/Background-FizX1.png');">
+  <ion-nav-buttons side="left">
+    <div style="margin-top: 7px;margin-left: 8px;" ng-click="goToLastState()">
+      <i class="icon ion-chevron-left font-size-22"></i>
+    </div>
+  </ion-nav-buttons>
+  <ion-content class="padding has-header">
+    <ion-spinner icon="ripple" ng-if="!showSelectedPost" class="center-item"></ion-spinner>
+    <div>
+      <h3 class="font-color-white font-family-open-sans">{{selectPost.title}}</h3>
+      <p class="display-inline font-family-open-sans font-color-grey"> By {{selectPost.author.name}}</p>
+      <p class="display-inline font-family-open-sans font-color-grey"> On {{selectPost.date| cmdate:'MMM/dd/yyyy'}}</p>
+      <br>
+      <br>
+      <p id="postDetail" ng-bind-html="selectPost.content">
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-25 text-center" ng-click="shareViaFacebook('some message', null, 'http://blog.nraboy.com')" style="background-color: #4769A5;padding-top: 1%"><i class="icon ion-social-facebook" style="color: #ffffff"></i></div>
+      <div class="col-25 text-center" ng-click="shareViaTwitter('some message', null, 'http://blog.nraboy.com')" style="background-color: #65CCEF;padding-top: 1%"><i class="icon ion-social-twitter" style="color: #ffffff"></i></div>
+      <div class="col-25 text-center" ng-click="shareViaGooglePlus()" style="background-color: #cd252b;padding-top: 1%"><i class="icon ion-social-googleplus" style="color: #ffffff"></i></div>
+      <div class="col-25 text-center" ng-click="shareViaPinterest()" style="background-color: #eb4723;padding-top: 1%"><i class="icon ion-social-pinterest-outline" style="color: #ffffff"></i></div>
+    </div>
+    <div class="row padding-top-10">
+      <div class="col-33 text-center" ng-click="savePost()" style="background-color: #eb4723;margin-bottom: 0"><p style="color: #ffffff;margin-bottom: 0">Bookmark</p></div>
+    </div>
+    <div class="row padding-top-10">
+      <div class="col-33 text-center" ng-click="openModal()" style="background-color: #eb4723;margin-bottom: 0"><p style="color: #ffffff;margin-bottom: 0">Comments</p></div>
+    </div>
+    <div style="height: 100px"></div>
+  </ion-content>
+</ion-view>
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view  style="background-image: url('img/Background-FizX1.png');">
+    <ion-header-bar class="background-black">
+      <h1 class="title" style="color: #ffffff">Comment</h1>
+
+      <div class="padding-top-3percent" ng-click="closeModal()">
+        <i class="icon ion-close" style="color: #ffffff; font-size: 24px;"></i>
+      </div>
+    </ion-header-bar>
+    <ion-content scroll="true">
+      <!--<div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>
+      <div class="background-black" style="padding-left: 2%">
+        <p style="color: #ffffff">October 4,2015</p>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>
+      <div class="background-black" style="padding-left: 2%">
+        <p style="color: #ffffff">October 4,2015</p>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <div class="item item-avatar background-transparent">
+            <img class="border-solid-3px" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96"
+                 border="5">
+          </div>
+        </div>
+        <div class="col-80">
+          <p style="color: #ffffff;margin-bottom: 0;padding-top: 13px;font-weight: 700">Title</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">Hi! how are you hope you ar fine glad to see you back. My favourite car is Ford Mustang. What is your Favourite car.</p>
+          <p style="color: #b2b2b2;margin-bottom: 0">2 minutes ago</p>
+        </div>
+      </div>-->
+      <div class="spot-im-frame-inpage" data-post-id="79267"></div>
+    </ion-content>
+    <!--<ion-footer-bar class="background-black">-->
+      <!--<label class="col-90 item item-input background-transparent commentArea">-->
+        <!--<input type="text" placeholder="right your comment here">-->
+      <!--</label>-->
+      <!--<button class="col-10 button button-icon icon ion-android-send footer-btn"></button>-->
+    <!--</ion-footer-bar>-->
+  </ion-modal-view>
+</script>

@@ -1,0 +1,36 @@
+<ion-view view-title="Search" style="background-image: url('img/Background-FizX1.png');">
+  <ion-nav-buttons side="left">
+    <div style="margin-top: 7px;margin-left: 8px;" ng-click="showMenu()">
+      <i class="icon ion-navicon-round font-size-22"></i>
+    </div>
+  </ion-nav-buttons>
+  <ion-header-bar class="bar bar-subheader item-input-inset search-subheader">
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search" ng-model="query">
+      <button class="button button-clear" ng-click="clearSearch()">X</button>
+    </label>
+    <button class="button button-clear" ng-click="search()">Search</button>
+  </ion-header-bar>
+  <ion-content class="padding has-header" scroll-sista="subheader">
+    <ion-spinner icon="ripple" ng-if="showSearch" class="center-item"></ion-spinner>
+    <div ng-if="showList">
+      <div class="list card" ng-repeat="item in items" style="margin-bottom: 2% !important;">
+        <div class="item item-image position-relative">
+          <img ng-src="{{item.featured_image.guid}}">
+          <h2 class="bottom-0 position-absolute post-title margin-bottom-0" ng-click="searchSelectedPostId(item)">{{item.title}}</h2>
+          <span class="position-absolute top-0 right-3percent font-size-x-large" ng-click="item.bookmarked = true;savePostFromRoot(item)"><i class="icon" ng-class="{'ion-ios-star':item.bookmarked == true,'ion-ios-star-outline':item.bookmarked == undefined}" style="color: yellow"></i></span>
+        </div>
+
+        <p class="right-0 position-absolute assertive ">{{item.terms.category[0].name}}</p>
+
+        <div class="item item-avatar item-icon-left assertive">
+          <img class="" src="http://1.gravatar.com/avatar/798a82c1a5122f8c25da81d21c92e983?s=96">
+          <p>{{item.author.name}}</p>
+          <p>{{item.date| cmdate:'MMM/dd/yyyy'}}</p>
+        </div>
+      </div>
+    </div>
+    <div style="height: 100px"></div>
+  </ion-content>
+</ion-view>

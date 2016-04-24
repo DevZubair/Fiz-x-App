@@ -1,0 +1,34 @@
+<ion-view view-title="Humor" style="background-image: url('img/Background-FizX1.png');">
+  <ion-nav-buttons side="left">
+    <div style="margin-top: 7px;margin-left: 8px;" ng-click="showMenu()">
+      <i class="icon ion-navicon-round font-size-22"></i>
+    </div>
+  </ion-nav-buttons>
+  <ion-content class="padding has-header overflow-y-scroll" on-swipe-right="goBack()" on-swipe-left="goForward()">
+    <ion-spinner icon="ripple" ng-if="!showHumor" class="center-item"></ion-spinner>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <p ng-if="showError" style="color:whitesmoke; font-family: monospace">Error while fetching posts, your Internet might not be connected!</p>
+    <div ng-if="showHumor">
+      <div class="list card" ng-repeat="humor in humorArray" style="margin-bottom: 4% !important;">
+        <div class="item item-image position-relative">
+          <img ng-src="{{humor.featured_image.guid}}">
+          <h2 class="post-title-div position-absolute post-title top-0" ng-click="humorSelectedPost(humor)">{{humor.title}}</h2>
+          <span class="position-absolute bottom-3percent right-3percent font-size-x-large" ng-click="humor.bookmarked = true;savePostFromRoot(humor)"><i class="icon" ng-class="{'ion-ios-star':humor.bookmarked == true,'ion-ios-star-outline':humor.bookmarked == undefined}" style="color: yellow"></i></span>
+        </div>
+          <div class="text-align-webkit-center background-black background-full-black">
+        <div class="font-color-white module line-clamp" ng-click="humorSelectedPost(humor)" ng-bind-html="humor.excerpt"></div>
+        </div>
+        </div>
+      <div class="text-center">
+        <button ng-if="showLoadMore" class="button button-clear button-dark" ng-click="loadMoreHumorPosts()">
+          Load More
+        </button>
+        <ion-spinner icon="ripple" ng-if="!showLoadMore"></ion-spinner>
+      </div>
+      <div style="height: 100px"></div>
+    </div>
+  </ion-content>
+</ion-view>

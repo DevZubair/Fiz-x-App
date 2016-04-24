@@ -1,0 +1,24 @@
+#search-bar {
+  background: none;
+  position: absolute;
+  width: 100%;
+  margin-left: -8%;
+  height: 40px;
+  z-index: 3;
+}
+#search-bar .item {
+  background: none;
+  border: none;
+}
+.search-icon-custom{
+  margin-top: 11px;
+  margin-left: 11px;
+}
+.search-icon-custom i{
+  color: whitesmoke;
+  font-size: 24px;
+}
+.search-subheader{
+  background-color: rgba(24, 24, 24, 0.76) !important;
+  padding: 0 !important;
+}

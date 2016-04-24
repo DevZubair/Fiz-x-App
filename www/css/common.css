@@ -1,0 +1,190 @@
+/*
+a{
+  color: whitesmoke !important;
+}
+*/
+
+.button.button-dark.button-clear{
+  color: #fdfdfd !important;
+}
+.background-transparent{
+  background: transparent;
+}
+.border-solid-3px{
+  border: solid 3px;
+}
+.bottom-0{
+  bottom: 0;
+}
+.bottom-3percent{
+  bottom: 3%;
+}
+.background-black{
+  background: #100F0F;
+}
+.background-full-black{
+  background: #000000;
+}
+
+.color-white{
+  color: whitesmoke;
+}
+.center-item{
+  position: fixed; /* or absolute */
+  top: 40%;
+  left: 45%;
+}
+
+.display-inline{
+  display: inline;
+}
+.display-none{
+  display: none;
+}
+
+.font-size-22{
+  font-size: 22px !important;
+}
+.font-color-white{
+  color: #ffffff;
+}
+.font-family-open-sans{
+  font-family: 'Open Sans';
+}
+.font-color-grey{
+  color: #959595;
+}
+.font-size-x-large{
+  font-size: x-large;
+}
+.font-size-26{
+  font-size: 26px;
+}
+.font-size-35{
+  font-size: 35px;
+}
+.font-grey{
+  color: #BBBABA !important;
+}
+.font-size-larger{
+  font-size: larger;
+}
+
+.gallery-row{
+  height: 100% !important;
+  width: auto !important;
+  text-align: -webkit-center;
+}
+
+.has-tabs-top{
+  top: 40px !important;
+}
+
+.margin-bottom-4percent{
+  margin-bottom: 4%;
+}
+.margin-bottom-0{
+  margin-bottom: 0 !important;
+}
+.margin-left-minus76{
+  margin-left: -76px !important;
+}
+.margin-left-minus20{
+  margin-left: -20px !important;
+}
+
+.overflow-y-scroll{
+  overflow-y: scroll;
+}
+
+.padding-top-3percent{
+  padding-top: 3%;
+}
+.padding-top-0{
+  padding-top: 0;
+}
+.padding-top-10{
+  padding-top: 10px !important;
+}
+.padding-right-0{
+  padding-right: 0 !important;
+}
+.padding-right-14-percent{
+  padding-right: 14% !important;
+}
+.position-relative{
+  position: relative;
+}
+.position-absolute{
+  position: absolute;
+}
+.padding-top-7percent{
+  padding-top: 7%;
+}
+
+.redColour{
+  color: #ffffff !important;
+}
+.right-3percent{
+  right: 3%;
+}
+.right-0{
+  right: 0;
+}
+
+.tabs-striped.tabs-positive .tab-item.tab-item-active, .tabs-striped.tabs-positive .tab-item.active, .tabs-striped.tabs-positive .tab-item.activated{
+  border-color: rgba(255, 255, 255, 0.26) !important;
+}
+.top-7-percent{
+  top: 7% !important;
+}
+.top-0{
+  top : 0 !important;
+}
+.top-44px{
+  top: 44px;
+}
+.top-9percent{
+  top: 9%;
+}
+.top-13percent{
+  top: 13%;
+}
+.text-align-webkit-center{
+  text-align: -webkit-center;
+}
+.top-12percent{
+  top: 12%;
+}
+.text-align-center{
+  text-align: center;
+}
+.top-44{
+  top: 44px;
+}
+
+.white-color{
+  color: #ffffff !important;
+}
+
+.z-index-9999{
+  z-index: 99999 !important;
+}
+.z-index-0{
+  z-index: 0 !important;
+}
+
+/*for hiding paragraph after three lines with three dots*/
+.module {
+  width: 250px;
+  overflow: hidden;
+}
+.module p {
+  margin: 0;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,34 @@
+<ion-view view-title="Games" style="background-image: url('img/Background-FizX1.png');">
+  <ion-nav-buttons side="left">
+    <div style="margin-top: 7px;margin-left: 8px;" ng-click="showMenu()">
+      <i class="icon ion-navicon-round font-size-22"></i>
+    </div>
+  </ion-nav-buttons>
+  <ion-content class="padding has-header overflow-y-scroll" on-swipe-right="goBack()" on-swipe-left="goForward()">
+    <ion-spinner icon="ripple" ng-if="!showGames" class="center-item"></ion-spinner>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <p ng-if="showError" style="color:whitesmoke; font-family: monospace">Error while fetching posts, your Internet might not be connected!</p>
+    <div ng-if="showGames">
+      <div class="list card" ng-repeat="game in gamesArray" style="margin-bottom: 4% !important;">
+        <div class="item item-image position-relative">
+          <img ng-src="{{game.featured_image.guid}}">
+          <h2 class="post-title-div position-absolute post-title top-0" ng-click="gameSelectedPost(game)">{{game.title}}</h2>
+          <span class="position-absolute top-0 right-3percent font-size-x-large" ng-click="game.bookmarked = true;savePostFromRoot(game)"><i class="icon" ng-class="{'ion-ios-star':game.bookmarked == true,'ion-ios-star-outline':game.bookmarked == undefined}" style="color: yellow"></i></span>
+        </div>
+        <div class="text-align-webkit-center background-black background-full-black">
+          <div class="font-color-white module line-clamp" ng-click="gameSelectedPost(game)" ng-bind-html="game.excerpt"></div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button ng-if="showLoadMore" class="button button-clear button-dark" ng-click="loadMoreGamesPosts()">
+          Load More
+        </button>
+        <ion-spinner icon="ripple" ng-if="!showLoadMore"></ion-spinner>
+      </div>
+      <div style="height: 100px"></div>
+    </div>
+  </ion-content>
+</ion-view>

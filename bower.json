@@ -1,0 +1,13 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.1"
+  },
+  "dependencies": {
+    "ionic-scroll-sista": "~1.0.7",
+    "ionic-filter-bar": "~1.1.1",
+    "angulike": "~1.2.0",
+    "ionic-toast": "~0.2.0"
+  }
+}

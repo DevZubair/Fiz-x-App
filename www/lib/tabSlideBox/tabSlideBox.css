@@ -1,0 +1,99 @@
+.tabbed-slidebox .slider {
+  height: 100%;
+}
+.tabbed-slidebox.btm .slider {
+  margin-bottom: -50px;
+}
+.tabbed-slidebox .slider-slides {
+  width: 100%;
+}
+
+.tabbed-slidebox .slider-slide {
+  padding-top: 0px;
+  color: #000;
+
+  text-align: center;
+  font-weight: 300;
+
+}
+
+.tabbed-slidebox .tsb-icons {
+  text-align: center;
+  position: relative;
+  background-color: rgba(2, 2, 2, 0.61);
+  height: 70px;
+}
+
+.tabbed-slidebox .tsb-ic-wrp {
+  display: flex;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+  -webkit-transform:translate3d(0,0,0);
+  margin-left: -7%;
+  width: 1000px;
+}
+.tabbed-slidebox .tsb-icons{
+  overflow: hidden;
+}
+
+.tabbed-slidebox .tsb-icons a {
+  display: inline-block;
+  font-size: 20px;
+  color: rgba(86, 86, 86, 0.79);
+  -webkit-transform:translate3d(0,8px,0);
+  text-decoration: none !important;
+  padding-left: 45px;
+}
+
+.tabbed-slidebox .tsb-icons a.active {
+  color: rgb(204, 199, 199);
+  font-size: 27px;
+  -webkit-transform:translate3d(0,0,0);
+  padding-top: 4px;
+}
+
+.tabbed-slidebox .tabbed-slidebox {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tabbed-slidebox .tsb-icons:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 1.4em 1.4em 1.4em;
+  border-color: transparent transparent rgba(253, 253, 253, 0.04) transparent;
+  position: absolute;
+  content: "";
+  display: block;
+  bottom: 0;
+  left: 50%;
+  margin-left: -14px;
+}
+.tsb-hscroll.scroll-view{
+  white-space: nowrap;
+  margin:0 auto;
+}
+.tsb-hscroll.scroll-view .scroll-bar{
+  visibility:hidden;
+}
+.tsb-hscroll.scroll-view .scroll.onscroll{
+  -webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+}
+
+.tabbed-slidebox .tsb-icons .scroll a{
+  width:auto;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  text-decoration: none;
+  margin: 0 15px;
+  border-bottom: 3px solid transparent;
+}
+.tabbed-slidebox .tsb-icons .scroll a.active {
+  font-size: 1.8em;
+  border-bottom: 3px solid #ccc;
+}
+.height-100{
+  height: 100% !important;
+}

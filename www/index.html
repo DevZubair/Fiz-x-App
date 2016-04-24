@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <!--
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src &apos;self&apos; &apos;unsafe-inline&apos;; script-src &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;">
+-->
+
+  <title>Fiz-x</title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="lib/tabSlideBox/tabSlideBox.css" rel="stylesheet">
+  <link rel="stylesheet" href="lib/ionic-filter-bar/dist/ionic.filter.bar.css">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/tabs-header.css" rel="stylesheet">
+  <link href="css/common.css" rel="stylesheet">
+  <link href="css/searchBar.css" rel="stylesheet">
+  <link href="lib/ionic-toast/dist/style.css" rel="stylesheet">
+  <style>
+    .slider-slide h3{
+      color:#fff;
+      margin-top:10px;
+    }
+    .scroll{
+      height:100%;
+    }
+
+  </style>
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="lib/ng-cordova.min.js"></script>
+  <script src="cordova.js"></script>
+  <script src="lib/ionic-toast/src/ionic-toast.js"></script>
+
+  <!--directive for pinterest and googlePlus-->
+  <script src="lib/angulike/angulike.js"></script>
+  <!--<script src="lib/angulike/pinterest.js"></script>-->
+  <!-- your app's js -->
+
+  <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
+  <script src="lib/ionic-scroll-sista/dist/ionic.scroll.sista.js"></script>
+  <script src="lib/tabSlideBox/tabSlideBox.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/Service/Service.js"></script>
+  <script src="js/Controller/slidingContentCtrl.js"></script>
+  <script src="js/Controller/indexController.js"></script>
+  <script src="js/Controller/selectedPostController.js"></script>
+  <script src="js/Controller/homeController.js"></script>
+  <script src="js/Controller/humorController.js"></script>
+  <script src="js/Controller/moviesController.js"></script>
+
+  <script src="js/Controller/entertainmentController.js"></script>
+  <script src="js/Controller/gadgetsController.js"></script>
+  <script src="js/Controller/gamesController.js"></script>
+  <script src="js/Controller/geekArtController.js"></script>
+  <script src="js/Controller/newsController.js"></script>
+  <script src="js/Controller/photographyController.js"></script>
+  <script src="js/Controller/searchController.js"></script>
+  <script src="js/Controller/bookmarksController.js"></script>
+
+</head>
+<body ng-app="app" ng-controller="IndexCtrl">
+
+<ion-nav-bar class="bar bar-dark" align-title="center">
+  <ion-nav-buttons side="right">
+    <div style="margin-top: 7px;margin-right: 8px;" ui-sref="searchPage">
+      <i class="icon ion-search font-size-22"></i>
+    </div>
+  </ion-nav-buttons>
+</ion-nav-bar>
+
+<ion-side-menus>
+  <ion-side-menu-content class="transparent-side-menu keep-menu-hide" can-drag-menu="" style="transform: translate3d(-100%, 0px, 0px);">
+
+    <div class="has-header side-menu-header">
+      <div class="row" style="color: rgba(160, 160, 160, 0.59);height: 35%;border-bottom: 1px rgba(154, 150, 150, 0.15) solid">
+        <div class="col col-50" style="border-right: 1px rgba(154, 150, 150, 0.15) solid;height: 100%;" ui-sref-active="white-color" menu-toggle="right" ui-sref="tabs.home">
+          <p style="text-align: center;font-size: 25px;margin-top: 44px;"><i class="icon ion-ios-home-outline"></i></p>
+          <p style="text-align: center;font-size: 15px;margin-top: -7px;font-family: serif;">Home</p>
+        </div>
+        <div class="col col-50" ui-sref-active="white-color" menu-toggle="right" ui-sref="bookmarks">
+          <p style="text-align: center;font-size: 25px;margin-top: 44px;"><i class="icon ion-ios-bookmarks-outline"></i></p>
+          <p style="text-align: center;font-size: 15px;margin-top: -7px;font-family: serif;">Bookmarks</p>
+        </div>
+      </div>
+
+      <div class="row" style="color: rgba(160, 160, 160, 0.59);height: 35%;border-bottom: 1px rgba(154, 150, 150, 0.15) solid">
+        <div class="col col-50" style="border-right: 1px rgba(154, 150, 150, 0.15) solid;height: 100%;">
+          <p style="text-align: center;font-size: 25px;margin-top: 44px;"><i class="icon ion-information"></i></p>
+          <p style="text-align: center;font-size: 15px;margin-top: -7px;font-family: serif;">About Us</p>
+        </div>
+        <div class="col col-50">
+          <p style="text-align: center;font-size: 25px;margin-top: 44px;"><i class="icon ion-iphone"></i></p>
+          <p style="text-align: center;font-size: 15px;margin-top: -7px;font-family: serif;">Our Apps</p>
+        </div>
+      </div>
+
+      <div class="row" style="color: rgba(160, 160, 160, 0.59);height: 35%;border-bottom: 1px rgba(154, 150, 150, 0.15) solid">
+        <div class="col col-50" style="border-right: 1px rgba(154, 150, 150, 0.15) solid;height: 100%;" ui-sref-active="white-color" menu-toggle="right" ui-sref="searchPage">
+          <p style="text-align: center;font-size: 25px;margin-top: 44px;"><i class="icon ion-ios-search-strong"></i></p>
+          <p style="text-align: center;font-size: 15px;margin-top: -7px;font-family: serif;">Search</p>
+        </div>
+        <div class="col col-50">
+        </div>
+      </div>
+    </div>
+
+  </ion-side-menu-content>
+
+  <ion-side-menu side="right" width="{{screenWidth}}">
+
+    <ion-nav-view class="background-black"></ion-nav-view>
+
+  </ion-side-menu>
+
+</ion-side-menus>
+
+</body>
+</html>

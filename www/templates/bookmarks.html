@@ -1,0 +1,21 @@
+<ion-view view-title="Bookmarks" style="background-image: url('img/Background-FizX1.png');">
+  <ion-nav-buttons side="left">
+    <div style="margin-top: 7px;margin-left: 8px;" ng-click="showMenu()">
+      <i class="icon ion-navicon-round font-size-22"></i>
+    </div>
+  </ion-nav-buttons>
+  <ion-content class="padding has-header overflow-y-scroll" on-swipe-right="goBack()" on-swipe-left="goForward()">
+    <ion-spinner icon="ripple" ng-if="!showBookmarks" class="center-item"></ion-spinner>
+    <p ng-if="showError" style="color:whitesmoke; font-family: monospace">You do not have any Bookmarks!</p>
+    <div ng-if="showBookmarks">
+      <div class="list card" ng-repeat="bookmark in bookmarksArray" ng-click="bookmarksSelectedPost(bookmark)" style="margin-bottom: 4% !important;">
+        <div class="item item-image position-relative">
+          <img ng-src="{{bookmark.featured_image.guid}}">
+          <h2 class="post-title-div bottom-0 position-absolute post-title">{{bookmark.title}}</h2>
+        </div>
+        <div ng-bind-html="bookmark.excerpt" class="font-color-white module line-clamp"></div>
+      </div>
+      <div style="height: 100px"></div>
+    </div>
+  </ion-content>
+</ion-view>
